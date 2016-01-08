@@ -5,41 +5,14 @@
 #include <QLabel>
 #include <QDebug>
 
-bool checkCameraAvailability()
-{
-    if (QCameraInfo::availableCameras().count() > 0)
-        return true;
-    else
-        return false;
-}
-
-
-
+#include "mainwindow.h"
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    qDebug()<<"Is there avaible cameraes? " << checkCameraAvailability();
-    auto mainWindow = new QWidget;
-    if(checkCameraAvailability())
-    {
-        auto cameraDevice = QCamera::availableDevices()[0];
-        auto cameraInfo = QCameraInfo::availableCameras()[0];
 
-        auto camera = new QCamera(cameraDevice);
-        auto viewfinder = new QCameraViewfinder;
-        camera->setViewfinder(viewfinder);
+    auto mainWindow = new MainWindow();
+    mainWindow->show();
 
-        auto cameraName = new QLabel(cameraInfo.deviceName());
-
-        auto cameraLayout = new QVBoxLayout();
-        cameraLayout->addWidget(cameraName);
-        cameraLayout->addWidget(viewfinder);
-
-        mainWindow->setLayout(cameraLayout);
-        mainWindow->show();
-        camera->start(); // to start the viewfinder
-
-    }
     return app.exec();
 }
 

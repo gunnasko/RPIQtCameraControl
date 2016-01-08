@@ -28,6 +28,11 @@ std::shared_ptr<QCamera> CameraHandler::getCamera(int deviceId)
     return NULL;
 }
 
+QList<QCameraInfo> CameraHandler::getCameraInfo()
+{
+    return cameras.keys();
+}
+
 
 void CameraHandler::updateCameras()
 {

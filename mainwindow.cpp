@@ -1,11 +1,16 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent, std::shared_ptr<CameraHandler>)
-    : QWidget(parent)
-{
+#include "camerawidget.h"
 
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+{
+    auto camWidget = new CameraWidget();
+    setCentralWidget(camWidget);
 }
 
 MainWindow::~MainWindow()
 {
 }
+
+

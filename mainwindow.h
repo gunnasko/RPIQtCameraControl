@@ -4,17 +4,19 @@
 #include <QMainWindow>
 #include <memory>
 #include "camerahandler.h"
+#include <QStandardItemModel>
+#include <QCameraViewfinder>
+#include <QHBoxLayout>
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0, std::shared_ptr<CameraHandler>);
+    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
 private:
-    std::shared_ptr<CameraHandler> cameraHandler;
 };
 
 #endif // MAINWINDOW_H

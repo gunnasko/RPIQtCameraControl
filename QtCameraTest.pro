@@ -11,11 +11,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     camerahandler.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    camerawidget.cpp
 
 target.path = /home/root
 INSTALLS += target
 
 HEADERS += \
     camerahandler.h \
-    mainwindow.h
+    mainwindow.h \
+    camerawidget.h

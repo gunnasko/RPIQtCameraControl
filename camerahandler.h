@@ -1,9 +1,9 @@
 #ifndef CAMERAS_H
 #define CAMERAS_H
 
-#include "camera.h"
 #include <QMap>
 #include <memory>
+#include <QtMultimedia>
 
 class CameraHandler
 {
@@ -13,6 +13,7 @@ public:
     bool checkCameraAvailability();
     std::shared_ptr<QCamera> getCamera(QCameraInfo);
     std::shared_ptr<QCamera> getCamera(int deviceId);
+    QList<QCameraInfo> getCameraInfo();
 
     static int getLinuxDeviceInt(QString);
 
